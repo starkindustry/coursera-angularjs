@@ -14,17 +14,15 @@ function LunchCheckController($scope) {
     $scope.message = generateMessage(items);
   };
 
-  function isValid(item) {
-    item = item.trim();
-    return item !== '';
+  function hasValue(item) {
+    return item.trim() != '';
   };
 
   function isEmpty(items) {
-    if (typeof items === 'object') {
+    if (String(items).trim() == '') {
       return true;
     }
-    items = items.trim();
-    if (items === '') {
+    if (items.split(',').filter(hasValue).length == 0) {
       return true;
     }
     return false;
@@ -40,7 +38,7 @@ function LunchCheckController($scope) {
       setStyle('red');
       return "Please enter data first.";
     }
-    var item_array = items.split(',').filter(isValid);
+    var item_array = items.split(',').filter(hasValue);
     setStyle('green');
     if (item_array.length <= 3) {
       return "Enjoy!";
