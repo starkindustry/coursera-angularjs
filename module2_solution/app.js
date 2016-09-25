@@ -45,6 +45,10 @@ function ShoppingListCheckOffService() {
       quantity: '3'
     },
     {
+      name: 'boxes(s) of Kraft Dinner',
+      quantity: '3'
+    },
+    {
       name: 'key(s) of cocaine',
       quantity: '7'
     }
